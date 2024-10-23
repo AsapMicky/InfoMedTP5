@@ -125,4 +125,4 @@ JOIN
 GROUP BY 
     m.nombre
 ```
-![Q9](images/DO.png)
+![Q9](images/q9.png)
