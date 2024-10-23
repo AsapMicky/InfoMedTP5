@@ -18,5 +18,5 @@ Este repositorio ha sido creado para el trabajo práctico 5 de la asignatura de 
 
 
 ## Reporting
-Para la actividad de reporting, nos conectamos desde *Looker studio* directamente a la base de datos subida a google sheets.
+Para la actividad de reporting, nos conectamos desde *Looker studio* directamente a la base de datos subida a Google sheets.
 [Dashboard en looker studio]()
