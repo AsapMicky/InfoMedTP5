@@ -73,31 +73,9 @@ UPDATE Pacientes
 SET ciudad = 'Córdoba'
 WHERE TRIM(LOWER(ciudad)) IN ('córodba', 'cordoba');
 ```
-```sql
 
-CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
-UPDATE pacientes
-  SET ciudad = 'Buenos Aires'
-  WHERE similarity(ciudad, 'Buenos Aires') > 0.3;
 
-UPDATE pacientes
-  SET ciudad = 'Rosario'
-  WHERE similarity(ciudad, 'Rosario') > 0.3;
-
-UPDATE pacientes
-  SET ciudad = 'Sante Fé'
-  WHERE similarity(ciudad, 'Sante Fé') > 0.3;
-
-UPDATE pacientes
-  SET ciudad = 'Córdoba'
-  WHERE similarity(ciudad, 'Córdoba') > 0.3;
-
-UPDATE pacientes
-  SET ciudad = 'Mendoza'
-  WHERE similarity(ciudad, 'Mendoza') > 0.3;
-
-```
 **6. Obtener el nombre y la dirección de los pacientes que viven en Buenos Aires.**
 
 ```sql
@@ -117,3 +95,19 @@ GROUP BY TRIM(LOWER(ciudad));
 Notar que hay un error en buenos aires que no pudimos corregir (usamos alternativa 1) por lo que serían 8 de buenos aires.
 
 ![Q7](images/NOO.png)
+
+**8 Cantidad de pacientes por sexo que viven en cada ciudad.** 
+```sql
+SELECT 
+    ciudad, 
+    id_sexo, 
+    COUNT(*) AS cantidad_pacientes
+FROM 
+    pacientes
+GROUP BY 
+    ciudad, id_sexo
+ORDER BY 
+    ciudad, id_sexo;
+
+```
+![Q8](images/q8.png)
