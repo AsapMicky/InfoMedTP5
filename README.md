@@ -3,5 +3,5 @@
 
 ## Alumnos: Giorgioni Agustín; Miguel Obeid.
 
-## Profesores: Carlos Lazzarino;Ingrid Celia Spessotti;MELINA LEONOR PIACENTINO CASTAÑO
+## Profesores: Carlos Lazzarino;Ingrid Celia Spessotti;Melina Leonor Piacentino Castaño
 
