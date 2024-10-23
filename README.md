@@ -1,10 +1,10 @@
 # TP5_ObeidGiorgioni
 TP 5 Informatica Medica (20242C)
 ## Profesores
-*Eugenia Berrino
-*Melina Piacentino
-*Carlos Lazzarino
-*Ingrid Spessotti
+* Eugenia Berrino
+* Melina Piacentino
+* Carlos Lazzarino
+* Ingrid Spessotti
 
 ## Alumnos
 * Miguel A. Obeid
