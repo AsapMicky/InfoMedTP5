@@ -111,3 +111,18 @@ ORDER BY
 
 ```
 ![Q8](images/q8.png)
+
+
+**9. Obtener la cantidad de recetas emitidas por cada médico** 
+```sql
+SELECT 
+    m.nombre, 
+    COUNT(r.id_receta) AS cantidad_recetas
+FROM 
+    medicos m
+JOIN 
+    recetas r ON m.id_medico = r.id_medico
+GROUP BY 
+    m.nombre
+```
+![Q9](images/DO.png)
