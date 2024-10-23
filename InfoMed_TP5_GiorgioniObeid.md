@@ -107,3 +107,13 @@ WHERE ciudad = 'Buenos Aires';
 ```
 
 ![Q6](images/q6.png)
+
+**7. Cantidad de pacientes que viven en cada ciudad.**
+```sql
+SELECT TRIM(LOWER(ciudad)) AS ciudad_normalizada, COUNT(*) AS cantidad_pacientes
+FROM Pacientes
+GROUP BY TRIM(LOWER(ciudad));
+```
+Notar que hay un error en buenos aires que no pudimos corregir (usamos alternativa 1) por lo que serían 8 de buenos aires.
+
+![Q7](images/q7.png)
