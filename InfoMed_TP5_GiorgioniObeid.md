@@ -126,3 +126,32 @@ GROUP BY
     m.nombre
 ```
 ![Q9](images/q9.png)
+
+**10. Obtener todas las conultas médicas realizadas por el médico con ID igual a 3 en el mes de agosto de 2024** 
+```sql
+SELECT 
+    *
+FROM 
+    consultas
+WHERE 
+    id_medico = 3 
+    AND fecha >= '2024-08-01' 
+    AND fecha < '2024-09-01';
+```
+![Q10](images/q10.png)
+
+**11. Obtener el nombre de los pacientes junto con la fecha y el diagnóstico de todas las consultas médicas realizadas en agosto del 2024.**
+```sql
+SELECT 
+    p.nombre,       -- p se refiere a la tabla pacientes
+    c.fecha,       -- c se refiere a la tabla consultas
+    c.diagnostico
+FROM 
+    pacientes p    
+JOIN 
+    consultas c ON p.id_paciente = c.id_paciente  
+WHERE 
+    c.fecha >= '2024-08-01' 
+    AND c.fecha < '2024-09-01';
+```
+![Q11](images/q11.png)
