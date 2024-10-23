@@ -54,3 +54,56 @@ WHERE id_paciente = 1;
 
 ![Q4](images/q4.png)
 
+**5. Puede pasar que haya inconsistencias en la forma en la que están escritos los nombres de las ciudades, ¿cómo se corrige esto? Agregar la query correspondiente.**
+
+encontramos 2 formas.
+```sql
+-- Corregir las variaciones de Buenos Aires, incluyendo espacios
+UPDATE Pacientes
+SET ciudad = 'Buenos Aires'
+WHERE TRIM(LOWER(ciudad)) IN ('buenos aires', 'buenos aiers', 'bs aires');
+
+-- Corregir el error en Mendoza, incluyendo espacios
+UPDATE Pacientes
+SET ciudad = 'Mendoza'
+WHERE TRIM(LOWER(ciudad)) = 'mendzoa';
+
+-- Corregir el error en Córdoba, incluyendo espacios y la variación sin tilde
+UPDATE Pacientes
+SET ciudad = 'Córdoba'
+WHERE TRIM(LOWER(ciudad)) IN ('córodba', 'cordoba');
+```
+```sql
+
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+
+UPDATE pacientes
+  SET ciudad = 'Buenos Aires'
+  WHERE similarity(ciudad, 'Buenos Aires') > 0.3;
+
+UPDATE pacientes
+  SET ciudad = 'Rosario'
+  WHERE similarity(ciudad, 'Rosario') > 0.3;
+
+UPDATE pacientes
+  SET ciudad = 'Sante Fé'
+  WHERE similarity(ciudad, 'Sante Fé') > 0.3;
+
+UPDATE pacientes
+  SET ciudad = 'Córdoba'
+  WHERE similarity(ciudad, 'Córdoba') > 0.3;
+
+UPDATE pacientes
+  SET ciudad = 'Mendoza'
+  WHERE similarity(ciudad, 'Mendoza') > 0.3;
+
+```
+**6. Obtener el nombre y la dirección de los pacientes que viven en Buenos Aires.**
+
+```sql
+SELECT nombre,numero,calle
+FROM Pacientes
+WHERE ciudad = 'Buenos Aires';
+```
+
+![Q6](images/q6.png)
