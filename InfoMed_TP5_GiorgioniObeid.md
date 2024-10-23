@@ -296,3 +296,6 @@ ORDER BY
     total_pacientes DESC;
 ```
 ![Q18](images/q18.png)
+
+
+Nota: En aquellos casos donde las querys daban una cantidad muy grande de resultados se tomó una imagen de una cantidad significativas de los mismos pero no todos. 
