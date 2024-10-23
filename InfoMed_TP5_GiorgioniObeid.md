@@ -232,3 +232,67 @@ WHERE
 
 ```
 ![Q15](images/q15.png)
+
+
+
+**16. Obtener el nombre del médico junto con el nombre del paciente y el número total de consultas realizadas por cada médico para cada paciente, ordenado por médico y paciente  .** 
+```sql
+SELECT 
+    m.nombre AS nombre_medico, 
+    p.nombre AS nombre_paciente, 
+    COUNT(c.id_consulta) AS total_consultas
+FROM 
+    medicos m
+JOIN 
+    consultas c ON m.id_medico = c.id_medico
+JOIN 
+    pacientes p ON c.id_paciente = p.id_paciente
+GROUP BY 
+    m.id_medico, m.nombre, p.id_paciente, p.nombre
+ORDER BY 
+    m.nombre, p.nombre;
+```
+![Q16](images/q16.png)
+
+**17 Obtener el nombre del medicamento junto con el total de recetas prescritas para ese medicamento, el nombre del médico que lo recetó y el nombre del paciente al que se le recetó, ordenado por total de recetas en orden descendente.**
+
+```sql
+
+SELECT 
+    m.nombre AS nombre_medicamento,
+    COUNT(r.id_receta) AS total_recetas,
+    med.nombre AS nombre_medico,
+    p.nombre AS nombre_paciente
+FROM 
+    recetas r
+JOIN 
+    medicamentos m ON r.id_medicamento = m.id_medicamento
+JOIN 
+    medicos med ON r.id_medico = med.id_medico
+JOIN 
+    pacientes p ON r.id_paciente = p.id_paciente
+GROUP BY 
+    m.id_medicamento, m.nombre, med.id_medico, med.nombre, p.id_paciente, p.nombre
+ORDER BY 
+    total_recetas DESC;
+```
+![Q17](images/q17.png)
+
+
+
+**18.  Obtener el nombre del médico junto con el total de pacientes a los que ha atendido, ordenado por el total de pacientes en orden descendente .**
+
+```sql
+SELECT 
+    m.nombre AS nombre_medico, 
+    COUNT(DISTINCT c.id_paciente) AS total_pacientes
+FROM 
+    medicos m
+JOIN 
+    consultas c ON m.id_medico = c.id_medico
+GROUP BY 
+    m.id_medico, m.nombre
+ORDER BY 
+    total_pacientes DESC;
+```
+![Q18](images/q18.png)
