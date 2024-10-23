@@ -16,3 +16,21 @@ Segun su estructura, la base de datos es relacional (SQL) ya que está organizad
 
 Cumple con la primera forma normal ya que cada celda posee un único valor. Cumple con la segunda forma normal ya que no hay dependencias parciales.
 Sin embargo, creemos que no cumple con la tercera forma normal debido a la dependencia entre diagnóstico y snomedcodigo. Para normalizarlo separaríamos los diagnósticos con sus correspondientes códigos en una tabla aparte. 
+
+
+## Ejercicio 2
+
+**1. Cuando se realizan consultas sobre la tabla paciente agrupando por ciudad los tiempos de respuesta son demasiado largos. Proponer mediante una query SQL una solución a este problema.**
+
+```sql
+CREATE INDEX IF NOT EXISTS idx_ciudades 
+  ON pacientes (ciudad);
+```
+
+**2. Se tiene la fecha de nacimiento de los pacientes. Se desea calcular la edad de los pacientes y almacenarla de forma dinámica en el sistema ya que es un valor típicamente consultado, junto con otra información relevante del paciente
+
+```sql
+UPDATE pacientes
+SET edad = EXTRACT(YEAR FROM AGE(CURRENT_DATE, fecha_nacimiento));}
+
+```
