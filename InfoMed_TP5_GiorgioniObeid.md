@@ -155,3 +155,43 @@ WHERE
     AND c.fecha < '2024-09-01';
 ```
 ![Q11](images/q11.png)
+
+
+**12. Obtener el nombre de los medicamentos prescritos más de una vez por el médico con ID igual a 2.**
+
+```sql
+
+SELECT 
+    m.nombre
+FROM 
+    recetas p
+JOIN 
+    medicamentos m ON p.id_medicamento = m.id_medicamento
+WHERE 
+    p.id_medico = 2
+GROUP BY 
+    m.nombre
+HAVING 
+    COUNT(*) > 1;
+
+```
+![Q12](images/q12.png)
+
+**13. Obtener el nombre de los pacientes junto con la cantidad total de recetas que han recibido.**
+```sql
+SELECT 
+    p.nombre, 
+    COUNT(r.id_receta) AS cantidad_recetas
+FROM 
+    pacientes p
+LEFT JOIN 
+    recetas r ON p.id_paciente = r.id_paciente
+GROUP BY 
+    p.id_paciente, p.nombre
+ORDER BY 
+    p.nombre;
+```
+![Q13](images/q13.png)
+
+
+
