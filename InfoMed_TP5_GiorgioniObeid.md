@@ -34,3 +34,21 @@ UPDATE pacientes
 SET edad = EXTRACT(YEAR FROM AGE(CURRENT_DATE, fecha_nacimiento));}
 
 ```
+
+**3.  La paciente, “Luciana Gómez”, ha cambiado de dirección. Antes vivía en “Avenida Las Heras 121” en “Buenos Aires”, pero ahora vive en “Calle Corrientes 500” en “Buenos Aires”. Actualizar la dirección de este paciente en la base de datos.**
+
+```sql
+UPDATE pacientes 
+SET calle = 'Calle Corrientes', numero= 500'
+WHERE id_paciente = 1;
+
+```
+
+**4. Seleccionar el nombre y la matrícula de cada médico cuya especialidad sea identificada por el id 4.**
+
+```sql
+UPDATE pacientes 
+SET calle = 'Calle Corrientes', numero= 500'
+WHERE id_paciente = 1;
+```
+
