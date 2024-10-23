@@ -116,4 +116,4 @@ GROUP BY TRIM(LOWER(ciudad));
 ```
 Notar que hay un error en buenos aires que no pudimos corregir (usamos alternativa 1) por lo que serían 8 de buenos aires.
 
-![Q7](images/q7.png)
+![Q7](images/NOO.png)
