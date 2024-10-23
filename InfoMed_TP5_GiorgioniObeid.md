@@ -6,5 +6,6 @@ Según su función, la base de datos es de tipo transaccional su objetivo es alm
 
 Segun su estructura, la base de datos es relacional (SQL) ya que está organizada en tablas con filas y columnas, donde cada tabla representa una entidad (pacientes, médicos, medicamentos, consultas, recetas).
 
-![Diagrama entidad-relación](images/diagrama entidad - relacion.jpg)
+![Diagrama Entidad-Relación](images/diagrama%20entidad%20-%20relacion.jpg)
+
 
