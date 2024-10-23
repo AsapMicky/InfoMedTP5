@@ -195,3 +195,40 @@ ORDER BY
 
 
 
+**14. Obtener el nombre del medicamento más recetado junto con la cantidad de recetas emitidas para ese medicamento.**
+
+```sql
+SELECT 
+    m.nombre, 
+    COUNT(r.id_receta) AS cantidad_recetas
+FROM 
+    recetas r
+JOIN 
+    medicamentos m ON r.id_medicamento = m.id_medicamento
+GROUP BY 
+    m.id_medicamento, m.nombre
+ORDER BY 
+    cantidad_recetas DESC
+LIMIT 1;
+```
+![Q14](images/q14.png)
+
+**15. Obtener el nombre del paciente junto con la fecha de su última consulta y el diagnóstico asociado.**
+```sql
+SELECT 
+    p.nombre, 
+    c.fecha, 
+    c.diagnostico
+FROM 
+    pacientes p
+JOIN 
+    consultas c ON p.id_paciente = c.id_paciente
+WHERE 
+    c.fecha = (
+        SELECT MAX(fecha) 
+        FROM consultas 
+        WHERE id_paciente = p.id_paciente
+    );
+
+```
+![Q15](images/q15.png)
